@@ -1,0 +1,17 @@
+* arkadiusz macias
++ online projektowo
+
+* literatura podstawowa
++ simmonds A: wprowadznie do transmisji danych, WKŁ warszawa 1999
++ Wesolowski L: Systemy radiokomunkacji ruchomej, WKŁ, warszawa 2003
++ Roshan P. Leary J.: Bezprzewodowe sieci LAN 802.11, Wydawnictwo MIKOM, Warszawa 2004
++ Hayakin S.: Systemy telekomunkacyjne, WKiŁ, Warszawa 2004
++ Zielinski S.: Bezprzewodowe sieci komputerowe, HELION, Gliwice 2007
+* srednia z 3 ocen
++ prezentacja
++ zadanie projektowe
++ ??kolokwium??
+** prezentacje
+[[./prezentacje.png]]
+** projekt
+[[./projekt.png]]
