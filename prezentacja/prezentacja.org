@@ -1,0 +1,103 @@
+#+TITLE: Bezpieczeństwo sieci bezprzewodowych GSM
+#+SUBTITLE: Karta SIM, usługi bezpieczeństwa, uwierzytelnianie,
+#+SUBTITLE: algorytm A3/A8, poufność oraz integralność
+#+AUTHOR: Patryk Kaniewski
+#+EMAIL: thisconencted@gmail.com
+#+DATE: 2021-05-10 Poniedziałek
+#+CREATOR: PUSB Skierniewice
+
+#+DESCRIPTION: test
+#+KEYWORDS:
+#+LANGUAGE: pl
+#+latex_class: beamer
+#+OPTIONS: H:3 toc:t num:t
+#+columns: %45ITEM %10BEAMER_env(Env) %10BEAMER_act(Act) %4BEAMER_col(Col) %8BEAMER_opt(Opt)
+#+beamer_theme: Warsaw
+#+beamer_color_theme:
+#+beamer_font_theme:
+#+beamer_inner_theme:
+#+beamer_outer_theme:
+#+beamer_header:
+
+* Wstęp
+** Wstęp
+*** Wstęp
+W tej prezentacji zostaną przedstawione rozwiązania bezpieczeństwa sieci komórkowych.
+- Ogólne rozwiązania bezpieczeństwa
+- Problemy GSM
+- Sieci 3G (UTMS)
+- Sieci 4G
+*** Bezpieczeństwo
+Bezpieczeństwo systemów teleinformatycznych (cyberbezpieczeństwo) - ogół technik, procesów i praktyk stosowanych w celu ochrony siecie informatycznych, urządzen, programow i danych przed atakami
+
+- the first, very @important@, point!
+- the previous point shows the use of the special markup which
+  translates to the Beamer specific /alert/ command for highlighting
+  text.
+
+
+The above list could be numbered or any other type of list and may
+include sub-lists.
+** Bezpieczeństwo sieci bezprzewodoych
+*** Ograniczenia sieci bezprzewodowych:
+W porównaniu do sieci przewodowych, sieci bezprzewodowe (takie jak sieci komórkowe) maja dużo problemów:
+- Otwarty dostęp - nie ma fizycznego oddzielenia które zwiększa zaangażowanie osoby atakującej
+- Złożenie systemu - system składa sie z wielu elementów urządzeń końcowych -> anten -> sieci wspierającej
+*** Ograniczenia sieci bezprzewodowych (kont.):
+Problemy w części rozwiązane
+- Ograniczonia łącza - bardziej wydajne rozwiązania powoduja wiekszy popyt na urządzenia podłaczone do sieci (IoT)
+- Niestabilość sieci bezprzewodowych - zakłocenia powodują straty i potrzeba jest retransmisji
+Problemy rozwiązane:
+- Ograniczona moc obliczeniowa
+- Ograniczenia poboru mocy
+*** Zagadnienia bezpieczeństwa
+- Autoryzacja
+- Integralnosc
+- Poufność
+- Bezpieczeństwo urządzenia
+- Lokalizacja  
+** Zagadnienia bezpieczeństwa
+*** Autoryzacja
+Telefon komórkowy znajduje się w kieszeni każdej osoby, a podróż przez granice a nawet oceany jest w zasięgu wiekszej liczby osób
+- Urządzenie musza współpracować z sieciami różnych krajów aby zapewnić wysoką jakość usługi
+*** Integralnosc                                                 
+
+*** Poufność                                                     :noexport:
+a
+*** Bezpieczeństwo urządzenia
+Urządzenia klienckie stają się coraz bardziej zaawansowane
+- Nawet jeżeli systemy takie jak Android oferuja mniejszy dostęp do sprzętu fizycznego nadal sa narażone na ataki
+- Słabe praktyki bezpieczeństwa u producentów urządzeń mogą pozostawiać duża liczbe urządzeń niezabezpieczonych
+*** Lokalizacja                                                  :noexport:
+a
+** Typy ataków
+*** DOS
+Atak na sieć lub urządzenie poprzez wysyłanie dużej ilości wiadomości który zagłusza inne prawdziwe wiadomości lub całkowicie blokuje urządzenie
+**** DDOS
+Atakujący posiadający botnet urządzeń może wykonać ataki wielkiej skali które mogą zablokować całą sieć
+
+*** Jamming
+
+*** Nieautoryzowany dostęp
+*** Nasłuch
+*** Message forgery
+Niezabezpieczona komunikacja jest podatna na ataki w których atakujący podszywa się pod innego użytkownika sieci
+**** Message Replay
+Nawet w niektórych zabezpieczonych sieciach atakujący może zapisać wiadomości i odtworzyć takie wiadomości w innym czasie aby uzyskać jakiś efekt
+  
+* 3G (UTMS)
+** Network Acess Security
+*** test
+** Network Domain Security
+*** test
+** User Domain Security
+*** test
+** Aplication Security
+*** test
+* 4G
+
+* Bibliografia
+
+ - STUDY AND IMPLEMENTATION OF 3G MOBILE SECURITY Sutirtha Prakash, Sachikanta Behera
+   #+comment: 3g
+ - Security In Wireless Cellular Networks Ali I. Gardezi
