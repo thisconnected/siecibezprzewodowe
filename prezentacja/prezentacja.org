@@ -2,8 +2,8 @@
 #+SUBTITLE: Karta SIM, usługi bezpieczeństwa, uwierzytelnianie,
 #+SUBTITLE: algorytm A3/A8, poufność oraz integralność
 #+AUTHOR: Patryk Kaniewski
-#+EMAIL: thisconencted@gmail.com
-#+DATE: 2021-05-10 Poniedziałek
+#+EMAIL: thisconnected@gmail.com
+#+DATE: 2021-05-10
 #+CREATOR: PUSB Skierniewice
 
 #+DESCRIPTION: test
@@ -21,36 +21,39 @@
 
 * Wstęp
 ** Wstęp
+#+BEAMER_HEADER: \AtBeginSection[]{\begin{frame}<beamer>\frametitle{Wstęp}\tableofcontents[currentsection]\end{frame}}
 *** Wstęp
-W tej prezentacji zostaną przedstawione rozwiązania bezpieczeństwa sieci komórkowych.
-- Ogólne idee bezpieczeństwa
+W tej prezentacji zostaną przedstawione rozwiązania bezpieczeństwza sieci komórkowych.
+- Ogólne idee bezpieczeństwa sieci bezprzewodowych
 - Problemy 2G (GSM)
-- Sieci 3G (UTMS)
+- Rozwiązania problemów z GSM
+# - Sieci 3G (UTMS)
 *** Bezpieczeństwo
 **** Bezpieczeństwo systemów teleinformatycznych
-ogół technik, procesów i praktyk stosowanych w celu ochrony sieci informatycznych, urządzeń, programów i danych przed atakami
+Ogół technik, procesów i praktyk stosowanych w celu ochrony sieci informatycznych, urządzeń, programów i danych przed atakami.
 
 
 W informatyce mówimy głownie o procesie bezpieczeństwa, zaczyna sie on od projektowania i implementacji dobrych praktyk, i trwa poprzez życie produktu poprzez stałe wsparcie (komercyjne lub społeczności).
 
 ** Bezpieczeństwo sieci bezprzewodoych
 *** Ograniczenia sieci bezprzewodowych:
-W porównaniu do sieci przewodowych, sieci bezprzewodowe (takie jak sieci komórkowe) maja dużo problemów:
+W porównaniu do sieci przewodowych, sieci bezprzewodowe (takie jak sieci komórkowe) mają dużo problemów:
 - Otwarty dostęp - nie ma fizycznego oddzielenia które zwiększa zaangażowanie osoby atakującej
-- Złożenie systemu - system składa sie z wielu elementów urządzenia końcowe <-> anteny <-> sieć wspierająca
+- Złożoność systemu - system składa sie z wielu elementów urządzenia końcowe <-> anteny <-> sieć wspierająca
 *** Ograniczenia sieci bezprzewodowych (kont.):
 Problemy w części rozwiązane
 - Ograniczenia przepustowości - bardziej wydajne rozwiązania powoduja wiekszy popyt na urządzenia podłaczone do sieci (IoT)
 - Niestabilość sieci bezprzewodowych - zakłocenia powodują straty i potrzeba jest retransmisji
 Problemy rozwiązane:
+# GSM - 1991 (w tym samym roku PGP) najszybszy komputer PC to intel 486 - 1 milion tranzystorów
 - Ograniczona moc obliczeniowa
 - Ograniczenia poboru mocy
 *** Zagadnienia bezpieczeństwa
 - Autoryzacja
-- Integralnosc
+- Integralność
 - Poufność
 - Bezpieczeństwo urządzenia
-- Lokalizacja  
+# - Lokalizacja  
 ** Zagadnienia bezpieczeństwa
 *** Autoryzacja
 Telefon komórkowy znajduje się w kieszeni każdej osoby, a podróż przez granice a nawet oceany jest w zasięgu wiekszej liczby osób
@@ -67,10 +70,11 @@ Często używamy sieci bezprzewodowej do wysyłania informacji poufnej, oczekuje
 *** Bezpieczeństwo urządzenia
 Urządzenia klienckie stają się coraz bardziej zaawansowane
 - Nawet jeżeli systemy takie jak Android oferuja mniejszy dostęp do sprzętu fizycznego nadal są narażone na ataki
-- Słabe praktyki bezpieczeństwa u producentów urządzeń mogą pozostawiać duża liczbe urządzeń niezabezpieczonych
+- Słabe praktyki bezpieczeństwa u producentów urządzeń mogą pozostawiać dużą liczbę urządzeń niezabezpieczonych
 *** Lokalizacja                                                  :noexport:
 a
 ** Typy ataków
+
 *** DOS
 Atak na sieć lub urządzenie poprzez wysyłanie dużej ilości wiadomości który zagłusza inne prawdziwe wiadomości lub całkowicie blokuje urządzenie
 **** DDOS
@@ -87,6 +91,7 @@ Niezabezpieczona komunikacja jest podatna na ataki w których atakujący podszyw
 **** Message Replay
 Nawet w niektórych zabezpieczonych sieciach atakujący może zapisać wiadomości i odtworzyć takie wiadomości w innym czasie aby uzyskać pożądany efekt
 * SIM
+#+BEAMER_HEADER: \AtBeginSection[]{\begin{frame}<beamer>\frametitle{SIM}\tableofcontents[currentsection]\end{frame}}
 *** Otwarte pytanie
 Ile komputerów jest w twoim telefonie?
 # Tutaj teraz mozemy pomyslec ile komputerow jest w naszym telefonie: Telefon, GSM, Radio
@@ -119,14 +124,16 @@ Jest to SoC (System on a Chip) przeznaczony do bezpiecznego (fizycznego) przecho
 *** K_i
 
 - Jest to 128bitowa wartość używana w autoryzacji w sieciach GSM. K_i jest przechowywane również poprzez operatora sieci w jego wewnętrznych systemach. Jest to zastosowanie PSK (pre shared key) gdzie klucz jest dostarczany przez inne medium do drugiego urządzenia.
+  # w tym przypadku medium fizyczne
 
 - Karta SIM utrzymuje ten klucz fizycznie bezpieczny poprzez udostępnienie jedynie funkcji która otrzymuje dane od urządzenia i zwraca odpowiednio podpisany wynik
 *** IMSI
 Jest to numer jednoznacznie identyfikujący urządzenie sieci komórkowej. Jest to wartość 64bitowa i używana jest do rejestracji oraz otrzymania danych od stacji. Aby uniknąć łatwego śledzenia użytkownika ten numer jest rzadko przesyłany a generowany jest tymczasowy numer.
 * 2G (GSM)
+#+BEAMER_HEADER: \AtBeginSection[]{\begin{frame}<beamer>\frametitle{GSM}\tableofcontents[currentsection]\end{frame}}
 ** Siec GSM
 *** GSM
-Global System for Mobile Comunications jest to standard drugiej generacji (2G) cyfrowych sieci komórkowych. Jest to sieć Point-to-Point, Circuit Switched, full duplex. Standard został pożniej rozszerzony poprzez dodanie możliwości wysyłania danych pakietowych (GPRS, EDGE)
+Global System for Mobile Comunications jest to standard drugiej generacji (2G) cyfrowych sieci komórkowych. Jest to sieć Point-to-Point, Circuit Switched, full duplex. Standard został poźniej rozszerzony poprzez dodanie możliwości wysyłania danych pakietowych (GPRS, EDGE)
 # tzn ze jest fizyczne polaczenie "kabel" pomiedzy jednym koncem a drugim koncem, dziala tak samo jak analogowa sieć telefonowa
 # komunikacja w dwie strony jednoczesnie
 *** Schemat
@@ -136,34 +143,113 @@ Global System for Mobile Comunications jest to standard drugiej generacji (2G) c
 *** Challange-response
 # Autoryzacja GSM zaczyna się od wyzwania od stacji bazowej, SIM następnie generuje odpowiedź za pomoca otrzymanych danych. Nastepnie K_c jest uzywany jako klucz do szyfru strumieniowego A5
 [[./data/gsm_challange.png]]
-*** A8
-
-
-
-*** Security by obscurity
-A5/1 jest szyfrem strumieniowym. Używanym by zapewnić prywatność w standardzie GSM
+*** Szyfry w GSM
+**** A3/A8
+A3/A8 nie jest ścisle określony w standardzie, jednak w praktyce wiekszość operatów zdecydowała sie na użycie tajnego COMP128 zaprojektówanego przez stowarzyszenie GSM.
+**** A5
+A5/1&2&3 są szyfrem strumieniowym. Używanym by zapewnić prywatność w standardzie GSM
 # szyfr strumieniowy to taki szyfr symetryczny który ma podany klucz i na jego podstawie generuje kolejne szyfry za kazdym razem wykonując jakas operacje zeby otrzymac text zaszyfrowany
+*** Szyfry w GSM (kont.)
+**** COMP128
+#+begin_src c
+  x[16-31] = RAND;
+  for(i=1;i<8;i++)
+    x[0-15] = Ki;
+    Compression();
+    FormBitsFromBytes();
+    if (i<7)
+      Permute();
+#+end_src
+
+*** Szyfry w GSM (kont.)
+#+ATTR_LATEX: :height 6cm
+[[./data/comp128.png]]
+*** Security by obscurity
+
 # bardzo znanym szyfrem strumieniowym jest niemiecka Enigma z drugiej wojny swiatowej
-- GSM jest jednym z najlepszych przykładów dlaczego nie należy chronić sekretów poprzez zamknięciem systemów. Mimo braku dokumentacji A5 został odkryty za pomoca inżynieri wstecznej oraz wykradniętych tajnych dokumentów. Szybko zostały zidentyfikowane problemy które prawdopodobnie byłyby zidentyfikowane dużo wcześniej.
+- GSM jest jednym z najlepszych przykładów dlaczego nie należy chronić sekretów poprzez zamknięciem systemów. Mimo braku dokumentacji A5 został odkryty za pomoca inżynieri wstecznej oraz wykradniętych tajnych dokumentów. Szybko zostały zidentyfikowane problemy które prawdopodobnie byłyby zauważone dużo wcześniej.
 - Sam GSM został złamany najpierw przez ataki na protokół GSM, zmuszając urządzenie do użycia specjalnie słabszej wersji szyfru A5/2
   # A5/2 byl specjalnie zaprojektowany jako slabszy szyfr do exportu do krajów drugiego swiata
-* 3G (UTMS)
+** Podsumowanie GSM
+*** Problemy GSM
+**** 
+Sieć **w żaden** sposób nie autoryzuje się urządzeniu
+  # jak widac na obrazku nie musimy wiedzieć K_i mozemy poprostu zaakceptować cokolwiek urządzenie nam odesle
+**** 
+Częste implementacje szyfru są wadliwe (**COMP128**)
+**** Narrow pipe
+  [[./data/comp_narrowpipe.png]]
+# Specifically, the output bytes of the second round of compression i,
+# i+8, i+16, i+24 are dependent ONLY upon their corresponding input
+# bytes. Thus, the ’pipe’ has a width of 4 bytes.
+*** Problemy GSM (kont.)
+- Dzięki temu problemowi możemy za pomocą wysłania dużej ilości challenge'ów do karty zmieniając tylko bajt **i** i **i+8**
+- Możemy oczekiwać kolizji po 2^(4*7/2) = **2^14** wezwaniach
+- Po znalezieniu kolizji mozemy poprostu to samo powtórzyć dla kolejnych par bajtów
+**** Brute force K_i
+#+begin_src C
+  for(i=0; i<256; i++)
+    for(j=0; j<256; j++)
+      key[0]=i; key[8]=j;
+      A3A8(chal1,key,hash1);
+      A3A8(chal2,key,hash2);
+      if(hash1=hash2) //znaleziony hash
+#+end_src
+*** Problemy GSM (kont.)
+- jeżeli sieć nie ma TMSI użytkownika to musi wysłać zapytanie o IMSI poprzez otwarte połączenie
+- atakujący może oczywiście użyc tej samej mechaniki do uzyskania IMSI od użytkownika
+- Szyfrowanie następuje po korekcji błędów więc znając algorytm korekcji błedów można zmiejszyć entropie szyfrowanego strumienia
+  # oczywiscie nie moze być szyfrowane bo nie ma IMSI z ktorego mogłby uzyskac szyfrowane polaczenie
+* Rozwiązanie problemów z GSM
+#+BEAMER_HEADER: \AtBeginSection[]{\begin{frame}<beamer>\frametitle{Rozwiązanie problemów z GSM}\tableofcontents[currentsection]\end{frame}}
+** 2G+
+*** GSM
+Został dodany nowy standard szyfrowania bazujący na szyfrze używanym do 3G (UTMS)
+**** A5/3
+KASUMI jest to szyfr blokowy zaprojektowany przez Mitsubishi wykorzystywany do generowania kluczy pośrednich do szyfra strumieniowego A5/3
+
+*** GPRS
+- FEC jest wykonywany na wyższym poziomie w modelu warstwowym (LLC)
+- Podobnie do A5/3 został dodany nowy algorytm szyfrujący bazujący na Kasumi
+
+**** GEA3
+KASUMI jest to szyfr blokowy zaprojektowany przez Mitsubishi wykorzystywany do generowania kluczy pośrednich do szyfra strumieniowego GEA3
+** 3G
 *** UTMS
-a
-** Network Acess Security
+# TUTAJ OGROMNY PLUS
+- Nowa możliwość 
+- Zmodyfikowana procedura autoryzacji
+  - Stacja bazowa wysyła oprócz RAND() także AUTN który jest generowany z K_root oraz RAND
+  - telefon może w takim wypadku sprawdzić czy stacja bazowa jest prawdziwa **!!!**
+** COMMENT Network Acess Security
 *** test
-** Network Domain Security
+** COMMENT Network Domain Security
 *** test
-** User Domain Security
+** COMMENT User Domain Security
 *** test
-** Aplication Security
+** COMMENT Aplication Security
 *** test
-** Visibility and configurability of security
+** COMMENT Visibility and configurability of security
 *** test
 
 * 4G                                                               :noexport:
 
 * Podsumowanie
+# #+BEAMER_HEADER: \AtBeginSection[]{\begin{frame}<beamer>\frametitle{Podstumowanie}\tableofcontents[currentsection]\end{frame}}
+*** Podsumowanie
+- Autoryzacja
+- Integralność
+- Poufność
+- Bezpieczeństwo urządzenia
+# Autoryzacja - modul SIM z PSK -> A3/A8
+# Integralność - szyfr strumieniowy A5
+# Poufność - A8 -> A5
+*** Podsumowanie
+- Sieć GSM była projektowana z bezpieczeństwem. Widać jednak że problemy natury politcznej (A5/2) oraz nacisku na sekretność w specifikacji standardu (COMP128) a nawet specjalnemu obniżaniu bezpieczeństwa (K_c 64->54bity) bezpieczeństwo zostało zdecydowanie obniżone
+- Opinia społeczności zarówno akademickiej jak i hobbystycznej mogła by wykryć wiele wad w publicznych specyfikacjach i naprawić większość błedów zanim standard trafi do krzemu lub oprogramowania konsumenckiego
+- W czasach ograniczonej mocy obliczeniowej (<2005), można by było nawet postawić hipoteze, że zostało to zrobione specjalnie aby umożliwić aktorom światowym (Rządy & Wojsko) złamać to bezpieczeństwo w celu "wyższych środków".
+  
+  
 *** Bibliografia
 - Study and Implementation of 3G Mobile Security, Sutirtha Prakash, Sachikanta Behera
   - https://core.ac.uk/download/pdf/53187397.pdf
@@ -173,6 +259,8 @@ a
   # a3/a8
 - A3/A8 & COMP128, Helsinki University of Technology, Billy Brumley
   - http://www.tcs.hut.fi/Studies/T-79.514/slides/S5.Brumley-comp128.pdf
+
+*** Bibliografia (kont.)
 - Security in the GSM system, Jeremy Quirke
   - https://web.archive.org/web/20040712061808/http://www.ausmobile.com/downloads/technical/Security%20in%20the%20GSM%20system%2001052004.pdf
 - Rooting SIM cards, Black Hat 2013, Karsten Nohl
