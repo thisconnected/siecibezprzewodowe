@@ -23,29 +23,24 @@
 ** Wstęp
 *** Wstęp
 W tej prezentacji zostaną przedstawione rozwiązania bezpieczeństwa sieci komórkowych.
-- Ogólne rozwiązania bezpieczeństwa
-- Problemy GSM
+- Ogólne idee bezpieczeństwa
+- Problemy 2G (GSM)
 - Sieci 3G (UTMS)
-- Sieci 4G
 *** Bezpieczeństwo
-Bezpieczeństwo systemów teleinformatycznych (cyberbezpieczeństwo) - ogół technik, procesów i praktyk stosowanych w celu ochrony siecie informatycznych, urządzen, programow i danych przed atakami
-
-- the first, very @important@, point!
-- the previous point shows the use of the special markup which
-  translates to the Beamer specific /alert/ command for highlighting
-  text.
+**** Bezpieczeństwo systemów teleinformatycznych
+ogół technik, procesów i praktyk stosowanych w celu ochrony sieci informatycznych, urządzeń, programów i danych przed atakami
 
 
-The above list could be numbered or any other type of list and may
-include sub-lists.
+W informatyce mówimy głownie o procesie bezpieczeństwa, zaczyna sie on od projektowania i implementacji dobrych praktyk, i trwa poprzez życie produktu poprzez stałe wsparcie (komercyjne lub społeczności).
+
 ** Bezpieczeństwo sieci bezprzewodoych
 *** Ograniczenia sieci bezprzewodowych:
 W porównaniu do sieci przewodowych, sieci bezprzewodowe (takie jak sieci komórkowe) maja dużo problemów:
 - Otwarty dostęp - nie ma fizycznego oddzielenia które zwiększa zaangażowanie osoby atakującej
-- Złożenie systemu - system składa sie z wielu elementów urządzeń końcowych -> anten -> sieci wspierającej
+- Złożenie systemu - system składa sie z wielu elementów urządzenia końcowe <-> anteny <-> sieć wspierająca
 *** Ograniczenia sieci bezprzewodowych (kont.):
 Problemy w części rozwiązane
-- Ograniczonia łącza - bardziej wydajne rozwiązania powoduja wiekszy popyt na urządzenia podłaczone do sieci (IoT)
+- Ograniczenia przepustowości - bardziej wydajne rozwiązania powoduja wiekszy popyt na urządzenia podłaczone do sieci (IoT)
 - Niestabilość sieci bezprzewodowych - zakłocenia powodują straty i potrzeba jest retransmisji
 Problemy rozwiązane:
 - Ograniczona moc obliczeniowa
@@ -60,13 +55,18 @@ Problemy rozwiązane:
 *** Autoryzacja
 Telefon komórkowy znajduje się w kieszeni każdej osoby, a podróż przez granice a nawet oceany jest w zasięgu wiekszej liczby osób
 - Urządzenie musza współpracować z sieciami różnych krajów aby zapewnić wysoką jakość usługi
-*** Integralnosc                                                 
-
-*** Poufność                                                     :noexport:
-a
+- Osoby niebędące abonentami takiej sieci nie powinny mieć dostępu
+*** Integralność                                                 
+Wysyłając czy otrzymując wiadomość użytkownik musi być pewny że dotarła ona w całości a jednocześnie nic nie zostało do niej dołączone.
+- Sieć musi zapewnić jakiś mechanizm sprawdzania czy dana wiadomość jest poprawna
+- Sieć musi zapobiec podszywaniu się pod innego użytkownika
+*** Poufność                                                     
+Często używamy sieci bezprzewodowej do wysyłania informacji poufnej, oczekujemy również prywatności nawet w sytuacjach w których zajmujemy się zwykłymi danymi
+- Sieć musi zapewnić że nasze prywatne wiadomości nie dostaną sie w niepożądane ręce
+- Idealnie nawet dostawca usługi nie może tych wiadomości podejrzeć (End-to-End)
 *** Bezpieczeństwo urządzenia
 Urządzenia klienckie stają się coraz bardziej zaawansowane
-- Nawet jeżeli systemy takie jak Android oferuja mniejszy dostęp do sprzętu fizycznego nadal sa narażone na ataki
+- Nawet jeżeli systemy takie jak Android oferuja mniejszy dostęp do sprzętu fizycznego nadal są narażone na ataki
 - Słabe praktyki bezpieczeństwa u producentów urządzeń mogą pozostawiać duża liczbe urządzeń niezabezpieczonych
 *** Lokalizacja                                                  :noexport:
 a
@@ -74,18 +74,82 @@ a
 *** DOS
 Atak na sieć lub urządzenie poprzez wysyłanie dużej ilości wiadomości który zagłusza inne prawdziwe wiadomości lub całkowicie blokuje urządzenie
 **** DDOS
-Atakujący posiadający botnet urządzeń może wykonać ataki wielkiej skali które mogą zablokować całą sieć
+Atakujący posiadający botnet urządzeń może wykonać ataki wielkiej skali które mogą zablokować całą sieć. W sytuacjach kryzysowych, duża liczba użytkowników może również wywołać podobny efekt
 
 *** Jamming
-
+Atak miejscowy na infrastrukture, polega on na zagłuszeniu jednej lokalizacji. Jedyną ochroną przed tego typu atakami jest droga legalna.
 *** Nieautoryzowany dostęp
+Do systemu podłączane są urządzenia które nie zostały wprowadzone przez operatora takiej sieci, mogą służyć do innych ataków lub jako forma nielegalnej "konkurencji"
 *** Nasłuch
+Atakujący ma dostęp do danych wysyłanych przez taką sieć. Tracimy wtedy prywatność takiej sieci gdyż wszystkie informacje są dostępne do atakującego. Jest to zwykle "cichy" atak, ofiara zwykle nie jest świadoma że sieć jest złamana
 *** Message forgery
-Niezabezpieczona komunikacja jest podatna na ataki w których atakujący podszywa się pod innego użytkownika sieci
+Niezabezpieczona komunikacja jest podatna na ataki w których atakujący podszywa się pod innego użytkownika sieci i może wysyłać i/lub modyfikować wysłane wiadomości
 **** Message Replay
-Nawet w niektórych zabezpieczonych sieciach atakujący może zapisać wiadomości i odtworzyć takie wiadomości w innym czasie aby uzyskać jakiś efekt
-  
+Nawet w niektórych zabezpieczonych sieciach atakujący może zapisać wiadomości i odtworzyć takie wiadomości w innym czasie aby uzyskać pożądany efekt
+* SIM
+*** Otwarte pytanie
+Ile komputerów jest w twoim telefonie?
+# Tutaj teraz mozemy pomyslec ile komputerow jest w naszym telefonie: Telefon, GSM, Radio
+** Karta SIM
+
+*** "Karta SIM"
+**** UICC                                                          
+ :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.8
+    :END:
+Mówiąc o karcie SIM, mowimy tak naprawde o UICC (Universal Integrated Circuit Card) która **zapewnia** usługi SIM (CSIM/USIM itp.). UICC jest to SoC który zawiera własny procesor, RAM, oraz ROM, i posiada specjalne programy którę udostępniają różne funkcje sieci komórkowej.
+
+# SIM to tak naprawde zestaw funkcji, pytasz urządzenie "Autoryzuj GSM" wysyłasz jakies dane i dostajesz kryptograficznie podpisana odpowiedz
+****                                                               
+   :PROPERTIES:
+    :BEAMER_env: block
+    :BEAMER_col: 0.2
+    :END:
+#+ATTR_LATEX: width=\textwidth
+[[./sim_card.png]]
+*** SIM
+Jest to SoC (System on a Chip) przeznaczony do bezpiecznego (fizycznego) przechowywania danych oraz zapewniania pewnych usług:
+- IMSI
+- klucz prywatny (K_i)
+- dwa hasła (PIN1 & 2 i PUK)
+- numer seryjny (ICCID)
+- dane sesji (np. LAI - location area identity)
+- dane użytkownika (np. książka telefoniczna)
+*** K_i
+
+- Jest to 128bitowa wartość używana w autoryzacji w sieciach GSM. K_i jest przechowywane również poprzez operatora sieci w jego wewnętrznych systemach. Jest to zastosowanie PSK (pre shared key) gdzie klucz jest dostarczany przez inne medium do drugiego urządzenia.
+
+- Karta SIM utrzymuje ten klucz fizycznie bezpieczny poprzez udostępnienie jedynie funkcji która otrzymuje dane od urządzenia i zwraca odpowiednio podpisany wynik
+*** IMSI
+Jest to numer jednoznacznie identyfikujący urządzenie sieci komórkowej. Jest to wartość 64bitowa i używana jest do rejestracji oraz otrzymania danych od stacji. Aby uniknąć łatwego śledzenia użytkownika ten numer jest rzadko przesyłany a generowany jest tymczasowy numer.
+* 2G (GSM)
+** Siec GSM
+*** GSM
+Global System for Mobile Comunications jest to standard drugiej generacji (2G) cyfrowych sieci komórkowych. Jest to sieć Point-to-Point, Circuit Switched, full duplex. Standard został pożniej rozszerzony poprzez dodanie możliwości wysyłania danych pakietowych (GPRS, EDGE)
+# tzn ze jest fizyczne polaczenie "kabel" pomiedzy jednym koncem a drugim koncem, dziala tak samo jak analogowa sieć telefonowa
+# komunikacja w dwie strony jednoczesnie
+*** Schemat
+#+ATTR_LATEX: width=\textwidth
+[[./data/gsm.png]]
+** Bezpieczeństwo
+*** Challange-response
+# Autoryzacja GSM zaczyna się od wyzwania od stacji bazowej, SIM następnie generuje odpowiedź za pomoca otrzymanych danych. Nastepnie K_c jest uzywany jako klucz do szyfru strumieniowego A5
+[[./data/gsm_challange.png]]
+*** A8
+
+
+
+*** Security by obscurity
+A5/1 jest szyfrem strumieniowym. Używanym by zapewnić prywatność w standardzie GSM
+# szyfr strumieniowy to taki szyfr symetryczny który ma podany klucz i na jego podstawie generuje kolejne szyfry za kazdym razem wykonując jakas operacje zeby otrzymac text zaszyfrowany
+# bardzo znanym szyfrem strumieniowym jest niemiecka Enigma z drugiej wojny swiatowej
+- GSM jest jednym z najlepszych przykładów dlaczego nie należy chronić sekretów poprzez zamknięciem systemów. Mimo braku dokumentacji A5 został odkryty za pomoca inżynieri wstecznej oraz wykradniętych tajnych dokumentów. Szybko zostały zidentyfikowane problemy które prawdopodobnie byłyby zidentyfikowane dużo wcześniej.
+- Sam GSM został złamany najpierw przez ataki na protokół GSM, zmuszając urządzenie do użycia specjalnie słabszej wersji szyfru A5/2
+  # A5/2 byl specjalnie zaprojektowany jako slabszy szyfr do exportu do krajów drugiego swiata
 * 3G (UTMS)
+*** UTMS
+a
 ** Network Acess Security
 *** test
 ** Network Domain Security
@@ -94,10 +158,26 @@ Nawet w niektórych zabezpieczonych sieciach atakujący może zapisać wiadomoś
 *** test
 ** Aplication Security
 *** test
-* 4G
+** Visibility and configurability of security
+*** test
 
-* Bibliografia
+* 4G                                                               :noexport:
 
- - STUDY AND IMPLEMENTATION OF 3G MOBILE SECURITY Sutirtha Prakash, Sachikanta Behera
-   #+comment: 3g
- - Security In Wireless Cellular Networks Ali I. Gardezi
+* Podsumowanie
+*** Bibliografia
+- Study and Implementation of 3G Mobile Security, Sutirtha Prakash, Sachikanta Behera
+  - https://core.ac.uk/download/pdf/53187397.pdf
+   # 3g
+- Security In Wireless Cellular Networks, National Institute of Technology Rourkel, Ali I. Gardezi
+  - https://www.cse.wustl.edu/~jain/cse574-06/ftp/cellular_security/
+  # a3/a8
+- A3/A8 & COMP128, Helsinki University of Technology, Billy Brumley
+  - http://www.tcs.hut.fi/Studies/T-79.514/slides/S5.Brumley-comp128.pdf
+- Security in the GSM system, Jeremy Quirke
+  - https://web.archive.org/web/20040712061808/http://www.ausmobile.com/downloads/technical/Security%20in%20the%20GSM%20system%2001052004.pdf
+- Rooting SIM cards, Black Hat 2013, Karsten Nohl
+  - https://www.youtube.com/watch?v=scArc93XXWw
+- OsmocomBB: Open Source GSM Implementation, Fabian Faessler
+  - https://www.youtube.com/watch?v=0i7wOfyJsW8
+- How do SIM Cards work? - SIMtrace, Fabian Faessler
+  - https://www.youtube.com/watch?v=iJFnYBJJiuQ
