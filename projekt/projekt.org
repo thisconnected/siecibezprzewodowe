@@ -1,0 +1,97 @@
+#+AUTHOR: Patryk Kaniewski
+#+TITLE: Projekt sieci bezprzewodowej sieci obslugujacej miejscowosci w poblizu Skierniewic
+#+SUBTITLE: Dabrowice, Podstrobow, Trzcianna
+#+LANGUAGE: pl
+#+LATEX_HEADER: \usepackage[AUTO]{babel}
+
+* Slownik
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
++ VoD (Video on demand) - technologie zapewniajace dowolny dostep do wszelkiego rodzaju filmow i innych video za pomoca Internetu
++ IoT (Internet of Things) - koncept wedlug ktorego wszystkie "przedmioty" ktore nas otaczaja jak pralki, zarowki, urzadzenia AGD moja polaczenie do internetu i moga ze soba wspolpracowac
+
+* Wstep
+Celem projektu jest zaprojektowanie sieci zapewniajacej dostep do Internetu dla mieszkancow mniejszych miejscowosci w poblizu Skierniewic.
+
+Klientami sieci beda glownie osoby idywidualne oraz lokalne firmy w miejscowosciach: Dabrowice, Podstrobow, Trzcianna. Miejscowosci te ze wzgledu na umiejscowienie pomiedzy wiekszymi miejscowosciami ktore rozwijaja sie za pomoca sieci przewodowych (swiatlowodowych) nie maja dostepu do internetu na tyle szybkiego aby uczestniczyc w szybko rozwijajacych sie sektorach takich jak VoD, IoT.
+
+Wstepnym zalozeniem jest pozyskanie 100 klientow, w przyszlosci mozliwe bedzie dodanie nowych lokalizacji oraz dlugoterminowo zamiana polaczenia bezprzewodowego na swiatlowodowe i uzycia zbudowanej infrastruktury i bazy klientow ponownie. Polaczenia od stacji bazowych beda wykonywane indywidualnie (domki jednorodzinne).
+
+Siec bedzie opierac sie na laczach radiowych jako siec "core" oraz rozprowadzania polaczen abonenckich od stacji bazowej. Siec bedzie poczatkowo laczyc miejscowosci oddalone o 4-7km od Skierniewic
+
+* Internet - siec zewnetrzna
+Biorac
+** Wybor operatorow zewnetrznych
+*** ISP I - Orange
+*** ISP II - timplus
+* Serwerownia
+* Intranet - siec wewnetrzna
+** Umiejscowienie stacji bazowych
+#+Caption: Opis stacji bazowych
+| Stacja bazowa | Umiejscowienie Anteny       | Odleglosc |
+|---------------+-----------------------------+-----------|
+| Dabrowice     | OSP Dabriowice              | 7.87 km   |
+| Podstrobow    | Stacja Kontroli Pojazdow    | 4.64 km   |
+| Trzcianna     | Szkola Podstawowa Trzcianna | 3.64 km   |
+| Zadebie       | FAMA                        | N/A       |
+
+Glownym
+
+** Schemat sieci Core
+#+CAPTION[short captions]: Mapa sieci Core
+[[./data/mapy/wszystkie.png]]
+v
+*** Stacja Podstrobow
+Stacja Podstrobow znajdzie sie na budynku nowo powstalej stacji kontroli pojazdu. Budynek zostal wybrany ze wzgledow na wysokosc oraz centralne polozenie dla miejscowosci
+#+Caption: Stacja Podstrobow
+[[./data/mapy/podstrobow.png]]
+
+| asdas                | Punkt a    | Punkt b |
+|----------------------+------------+---------|
+| Lokalizacja          | Podstrobow | Zadebie |
+|----------------------+------------+---------|
+| odleglosc            | 7.87km     |         |
+|----------------------+------------+---------|
+| Wysokosc anten       | ???69m     | ???69m  |
+| Najwyzsza przeszkoda | 20m        |         |
+| Strefa Fesenela      | Wolna      | Wolna   |
+| Platforma Sprzetowa  |            |         |
+| Szyfrowanie          |            |         |
+
+*** Stacja Trzcianna
+Stacja Trzcianna znajdzie sie na budynku szkoly podstawowej. W poblizu znajdowalo sie kilka budynkow tej samej wysokosci, wiec pozycja wybrana byla ze wzgledu na latwosc dostepu
+#+caption: Stacja Trzcianna
+[[./data/mapy/trzcianna.png]]
+
+*** Stacja Dabrowice
+Stacja Dabrowice znajdzie sie na budynku OSP w Dabrowicach. Stacja bazowa bedzie czesciowo finansowana z srodkow europejskiego funduszu ????????, gdyz bedzie czescia systemu zarzadzania kryzysowego. Maszt moze byc pozniej wykorzystany do podobnych celow
+#+caption: Stacja Dabrowice
+[[./data/mapy/dabrowice.png]]
+
+*** Stacja Zadebie
+a
+#+caption: Stacja Zadebie
+
+[[./data/mapy/zadebie.png]]
+
+
+
+
+* Przylaczenia abonentow
+* Uzywany sprzet komputerowy
+** Stacja Bazowa
+# #+CAPTION: 5GHz Directional Ethernet System WES3HTG-AX-CA
+|---------+--------------------------|
+| Model   | WES3HTG-AX-CA            |
+| Antena  | Zintegrowana, Kierunkowa |
+| Rozmiar | 292 x 146 x 89           |
+| Waga    | 0.82kg                   |
+|         |                          |
+* Finanse
+* Podsumowanie
+* Bibliografia
++ https://www.dipol.com.pl/poradnik_instalatora_wlan_bib86.htm
+
+
+
