@@ -1,97 +1,313 @@
 #+AUTHOR: Patryk Kaniewski
-#+TITLE: Projekt sieci bezprzewodowej sieci obslugujacej miejscowosci w poblizu Skierniewic
-#+SUBTITLE: Dabrowice, Podstrobow, Trzcianna
+#+TITLE: Projekt sieci bezprzewodowej obsługujacej miejscowości w poblizu Skierniewic
+#+SUBTITLE: Dąbrowice, Podstrobów, Trzcianna
 #+LANGUAGE: pl
 #+LATEX_HEADER: \usepackage[AUTO]{babel}
+#+LATEX_HEADER: \usepackage{gensymb}
 
-* Slownik
+#+LATEX_HEADER: \usepackage{fancyhdr}
+#+LATEX_HEADER: \usepackage[yyyymmdd]{datetime}
+#+LATEX_HEADER: \usepackage{graphicx}
+#+LATEX_HEADER: \graphicspath{ {/home/thisconnect/pwsz/} }
+#+LATEX_HEADER: \pagestyle{fancyplain}
+#+LATEX_HEADER: \chead{Projekt sieci bezprzewodowej}
+#+LATEX_HEADER: \lhead{\includegraphics{pusb.png}}
+#+LATEX_HEADER: \rhead{}
+#+LATEX_HEADER: \cfoot{\thepage}
+#+LATEX_HEADER: \lfoot{}
+#+LATEX_HEADER: \rfoot{Patryk Kaniewski \linebreak student PUSB}
+
+
+* Słownik
 :PROPERTIES:
 :UNNUMBERED: t
 :END:
-+ VoD (Video on demand) - technologie zapewniajace dowolny dostep do wszelkiego rodzaju filmow i innych video za pomoca Internetu
-+ IoT (Internet of Things) - koncept wedlug ktorego wszystkie "przedmioty" ktore nas otaczaja jak pralki, zarowki, urzadzenia AGD moja polaczenie do internetu i moga ze soba wspolpracowac
++ VoD (Video on demand) - technologie zapewniające dowolny dostęp do wszelkiego rodzaju filmow i innych video za pomocą Internetu
++ IoT (Internet of Things) - koncept według którego wszystkie "przedmioty" które nas otaczaja jak pralki, żarowki, urzadzenia AGD mają połaczenie do internetu i mogą ze sobą współpracować
++ provisioning - jest to technika budowania sieci szacując maksymalna liczbe użytkowników korzystających z danej usługi
++ QoS (Quality of Service) - technika priorytezacji niektórych bardziej "ważnych" usług aby zapewnić lepszy obserwowalny efekt w przypadku wykorzystania łącza
++ ISP (Internet Service Provider) - dostawca usługi internetowej
 
-* Wstep
-Celem projektu jest zaprojektowanie sieci zapewniajacej dostep do Internetu dla mieszkancow mniejszych miejscowosci w poblizu Skierniewic.
+* Wstęp
+Celem projektu jest zaprojektowanie sieci zapewniającej dostęp do Internetu dla mieszkanców mniejszych miejscowosci w poblizu Skierniewic.
 
-Klientami sieci beda glownie osoby idywidualne oraz lokalne firmy w miejscowosciach: Dabrowice, Podstrobow, Trzcianna. Miejscowosci te ze wzgledu na umiejscowienie pomiedzy wiekszymi miejscowosciami ktore rozwijaja sie za pomoca sieci przewodowych (swiatlowodowych) nie maja dostepu do internetu na tyle szybkiego aby uczestniczyc w szybko rozwijajacych sie sektorach takich jak VoD, IoT.
+Klientami sieci bedą głownie osoby idywidualne oraz lokalne firmy w miejscowosciach: Dąbrowice, Podstrobów, Trzcianna. Miejscowości te ze względu na umiejscowienie pomiedzy wiekszymi miejscowościami które rozwijają się za pomoca sieci przewodowych (swiatłowodowych) nie maja dostepu do internetu na tyle szybkiego aby uczestniczyc w szybko rozwijajacych sie sektorach takich jak VoD oraz IoT.
 
-Wstepnym zalozeniem jest pozyskanie 100 klientow, w przyszlosci mozliwe bedzie dodanie nowych lokalizacji oraz dlugoterminowo zamiana polaczenia bezprzewodowego na swiatlowodowe i uzycia zbudowanej infrastruktury i bazy klientow ponownie. Polaczenia od stacji bazowych beda wykonywane indywidualnie (domki jednorodzinne).
+Wstepnym załozeniem jest pozyskanie 100 klientow, w przyszłosci możliwe będzie dodanie nowych lokalizacji oraz długoterminowo zamiana połaczenia bezprzewodowego na swiatłowodowe i użycia zbudowanej infrastruktury i bazy klientow ponownie. Połaczenia od stacji bazowych bedą wykonywane indywidualnie (domki jednorodzinne).
 
-Siec bedzie opierac sie na laczach radiowych jako siec "core" oraz rozprowadzania polaczen abonenckich od stacji bazowej. Siec bedzie poczatkowo laczyc miejscowosci oddalone o 4-7km od Skierniewic
+Sieć będzie opierać się na łaczach radiowych jako sieć "core" oraz rozprowadzania połaczen abonenckich od stacji bazowej. Sieć bedzie poczatkowo łaczyc miejscowosci oddalone o 4-7km od Skierniewic.
 
-* Internet - siec zewnetrzna
-Biorac
-** Wybor operatorow zewnetrznych
+* Internet - sieć zewnętrzna
+Biorąc pod uwage przewidywana liczbę klientów całej sieci (ok 100 abonentów) przyłączenie do sieci zewnętrznej musi mieć przepustowość przynajmniej przpustowość 1Gbps. Aby zapewnić niezawodność takiego rozwiązania potrzebne będzie zakupienie dwóch niezależnych łącz internetowych.
+
+
+** Wybór operatorów zewnętrznych
+
+Zostały wybrane 2 oferty od największych dostawców usług internetowych w Polscie: Orange Polska oraz Netia.
 *** ISP I - Orange
-*** ISP II - timplus
-* Serwerownia
-* Intranet - siec wewnetrzna
+Orange Polska (przed fuzją odrębne spółki Telekomunikacja Polska i PTK Centertel) – operator telekomunikacyjny, były monopolista, a obecnie dominujący dostawca telefonii stacjonarnej w Polsce. Największy operator komórkowy w Polsce, obsługujący 14,36 mln klientów. Jeden z największych w Polsce dostawców Internetu i usług telekomunikacyjnych w sieci ruchomej.
+
+**** IP Transit
+
+Korzystaj z dedykowanych łączy IP o dużej przepustowości i najlepszych parametrach transmisyjnych od T-Mobile – międzynarodowego operatora obecnego w wielu krajach Europy, w tym najważniejszych węzłach międzyoperatorskich w Polsce, Czechach, Rumunii, na Węgrzech, Słowacji, Frankfurcie nad Menem, Amsterdamie, Londynie i Wiedniu, wymieniających ruch z operatorami klasy TIER-1.
+
+IP Transit to usługa przede wszystkim dla firm zajmujących się dostawą usług internetowych, hostingu lub lokalnych operatorów.
+*** ISP II - Netia
+Netia S.A. – jeden z największych polskich operatorów telekomunikacyjnych, część Grupy Cyfrowego Polsatu. Dostawca usług telewizyjnych, internetu stacjonarnego oraz mobilnego dla użytkowników prywatnych, firm oraz instytucji. Zatrudnia ok. 2000 osób w 70 lokalizacjach w Polsce. Od maja 2018 r. większościowy pakiet akcji Netia SA posiada Cyfrowy Polsat S.A.
+**** IP Tranzyt
+
+Netia jest operatorem najnowocześniejszej, redundantnej i drugiej co do wielkości w kraju sieci szkieletowej, o długości ok. 20.000 km. Łączy ona sieci metropolitalne o długości 23.000 km w ponad 100 największych miastach Polski oraz zapewnia kilkanaście połączeń międzynarodowych. Sieć Netii to usługi dostępne dla ponad 800 największych biurowców klasy A, od Frankfurtu po każde miasto w Polsce. Usługi transmisji danych Netii zapewniają przepustowość od 2 Mb/s do 100 Gb/s i zwielokrotnienie prędkości przesyłowej.
+
+
+* Stacje bazowe
+W sieci szkieletowej będą znajdować sie 3 stacje bazowe i jedna stacja głowna
+** Stacja głowna
+Stacja głowna (Zadębie) będzie się składać z serwerowni oraz anten kierunkowych zapewniających dostęp do sieci stacjom bazowym. W przyszłości ta lokalizacja może również posłużyć jako serwerownia sieci swiatłowodowych.
+*** Serwerownia
+
+2 redundatne serwery Dell Poweredge R6515:
+| Typ | Ilość | Część                  | Specyfikacja     |
+|-----+-------+------------------------+------------------|
+| CPU |     1 | AMD EPYC 7272P         | 2.90GHz, 12C/24T |
+| RAM |     8 | 16GB RDIMM             | 3200MT/s         |
+| ROM |     3 | 480GB SATA SSD         | Hotplug          |
+| PSU |     2 | Redundant Power Supply | 550W             |
+| OS  |       | Ubuntu Server LTS      | 20.04            |
+
+
+2 redundante switche Dell EMC Switch N2224X-ON:
+|                      | Dana | Specyfikacja |
+|----------------------+------+--------------|
+| Ilość portów         |   24 | RJ45 PoE     |
+|                      |    4 | SFP+, 40GbE  |
+| Przepustowość portów |      | 2.5G BASE-T  |
+| Rozmiar              |    1 | U            |
+
+
+1 zasilacz redundanty UPS Green Cell RTII with LCD display:
++ 2U
++ 2000VA 1800W
+
+** Stacja Bazowa
+Stacja bazowa będzie składać sie z szafy rackowej oraz anteny kierunkowej. Jej zadaniem jest zapewnienie dostępu do stacji głownej i rozprowadzenie połączeń abonenckich.
+*** Szafa rackowa
+Switch Dell EMC PowerSwitch N2224X-ON:
+|                      | Dana | Specyfikacja |
+|----------------------+------+--------------|
+| Ilość portów         |   48 | RJ45 PoE     |
+|                      |    4 | SFP+, 10GbE  |
+| Przepustowość portów |      | 2.5G         |
+
+1 zasilacz redundanty UPS Green Cell RTII with LCD display:
++ 2U
++ 2000VA 1800W
+* Intranet - sieć wewnętrzna
+Biorąc pod uwagę przewidywaną liczbe klientów (ok. 30/stacje bazową) oraz zakładając że łącze radiowe będzie osiągało 300Mbps (możliwe jest również wykorzystanie opcji 650Mbps) na jednego abonenta przypada wtedy tylko ok. 10Mb/s. Jest to co prawda wystarczające do streamowania jednego video 1080p (Tabela [[video]]), jednak w przypadku klientów w domkach jednorodzinnych może to być jednocześnie kilka komputerów, telefonów i innych urządzeń IoT. Z tych powodów porządane jest wykorzystanie opcji 650Mbps aby umożliwić nawet w godzinach "szczytu" użytkowania internetu (zwykle tuż po godzinach pracy/szkoły) drożności sieci bez agresywnego używania QoS.
+
+#+Caption: Zalecany bitrate na platformie YouTube
+#+name: video
+| Typ        | 30 fps     | 60 fps      |
+|------------+------------+-------------|
+| 1440p (2K) | 16 Mbps    | 24 Mbps     |
+| **1080p**  | **8 Mbps** | **12 Mbps** |
+| 720p       | 5 Mbps     | 7.5 Mbps    |
 ** Umiejscowienie stacji bazowych
 #+Caption: Opis stacji bazowych
-| Stacja bazowa | Umiejscowienie Anteny       | Odleglosc |
-|---------------+-----------------------------+-----------|
-| Dabrowice     | OSP Dabriowice              | 7.87 km   |
-| Podstrobow    | Stacja Kontroli Pojazdow    | 4.64 km   |
-| Trzcianna     | Szkola Podstawowa Trzcianna | 3.64 km   |
-| Zadebie       | FAMA                        | N/A       |
+| Stacja bazowa        | Umiejscowienie Anteny       | Odległość |
+|----------------------+-----------------------------+-----------|
+| **Zadebie**          | FAMA                        | głowna    |
+| Dabrowice            | OSP Dabriowice              | 3.64 km   |
+| Podstrobów           | Stacja Kontroli Pojazdow    | 4.64 km   |
+| Trzcianna            | Szkola Podstawowa Trzcianna | 7.87 km   |
 
-Glownym
+Głownymi kryteriami wyboru stacji bazowych były:
++ ilość klientów
++ centralna lokalizacja masztu (wysoki budynek)
++ położenie na południe od Skierniewice
 
 ** Schemat sieci Core
 #+CAPTION[short captions]: Mapa sieci Core
 [[./data/mapy/wszystkie.png]]
-v
-*** Stacja Podstrobow
-Stacja Podstrobow znajdzie sie na budynku nowo powstalej stacji kontroli pojazdu. Budynek zostal wybrany ze wzgledow na wysokosc oraz centralne polozenie dla miejscowosci
-#+Caption: Stacja Podstrobow
+Siec core (szkieletowa) obejmuje połaczenia radiowe pomiedzy stacją głowną (punkt [[zadebie]]) a stacjami bazowymi w 3 mniejszych miejscowościach. Przy stacji głownej znajduje się serwerownia a przy stacjach bazowych znajdują sie szafy rackowe z których wychodzą połaczenia abonenckie.
+
+Do kalkulacji strefy Fresnela użyto maksymalnego zasięgu strefy fresnela w metrach:
+
+#+Caption: Strefa Fresnela
+[[./data/img/fresnel_zone.png]]
+
+\begin{equation}
+F_1 [m] = \frac{1}{2} \sqrt{\frac{cD}{f}}
+\end{equation}
+
+\begin{equation}
+F_1 [m] = 8.656 \sqrt{\frac{D [km]}{f [GHz]}}
+\end{equation}
+
+#+Caption: Kod w języku python
+#+begin_src python :results value :exports both
+    import math
+
+    distance = 7.87 #km
+    frequency = 5.5 #GHz
+
+    output = 8.656 * math.sqrt(distance/frequency)
+    #substytucja predkosci swiatla
+    return ("Strefa fresnela dla Trzcianna " + str(output) + "m")
+#+end_src
+
+#+RESULTS:
+: Strefa fresnela dla Trzcianna 10.354360208670988m
+*** Stacja Podstrobów
+Stacja Podstrobów znajdzie się na budynku stacji kontroli pojazdu. Budynek został wybrany ze wzgledu na wysokość oraz centralne połozenie w miejscowosci.
+
+#+Caption: Stacja Podstrobów
 [[./data/mapy/podstrobow.png]]
 
-| asdas                | Punkt a    | Punkt b |
-|----------------------+------------+---------|
-| Lokalizacja          | Podstrobow | Zadebie |
-|----------------------+------------+---------|
-| odleglosc            | 7.87km     |         |
-|----------------------+------------+---------|
-| Wysokosc anten       | ???69m     | ???69m  |
-| Najwyzsza przeszkoda | 20m        |         |
-| Strefa Fesenela      | Wolna      | Wolna   |
-| Platforma Sprzetowa  |            |         |
-| Szyfrowanie          |            |         |
+# #+caption: Stacja Kontroli Pojazdów
+[[./data/img/podstrobow.png]]
+
+|                      | Punkt A       | Punkt B       |
+|----------------------+---------------+---------------|
+| Lokalizacja          | Podstrobów    | Zadębie       |
+| Wysokośc anten       | 25m           | 35m           |
+| Platforma sprzętowa  | WES3HTG-AX-CA | WES3HTG-AX-CA |
+| Tor radiowy          | Zintegrowany  | Zintegrowany  |
+|----------------------+---------------+---------------|
+| Odległość            | 4.64km        |               |
+| Najwyższa przeszkoda | 8m (dom)      |               |
+| Strefa Fresnela      | Wolna         |               |
+| Szyfrowanie          | Tak           |               |
 
 *** Stacja Trzcianna
 Stacja Trzcianna znajdzie sie na budynku szkoly podstawowej. W poblizu znajdowalo sie kilka budynkow tej samej wysokosci, wiec pozycja wybrana byla ze wzgledu na latwosc dostepu
+
 #+caption: Stacja Trzcianna
 [[./data/mapy/trzcianna.png]]
 
+# #+Caption: Szkoła Podstawowa Trzcianna
+[[./data/img/trzcianna.png]]
+
+|                      | Punkt A       | Punkt B       |
+|----------------------+---------------+---------------|
+| Lokalizacja          | Trzcianna     | Zadębie       |
+| Wysokośc anten       | 35m           | 35m           |
+| Platforma sprzętowa  | WES3HTG-AX-CA | WES3HTG-AX-CA |
+| Tor radiowy          | Zintegrowany  | Zintegrowany  |
+|----------------------+---------------+---------------|
+| Odległość            | 7.87km        |               |
+| Najwyższa przeszkoda | 20m (drzewo)  |               |
+| Strefa Fresnela      | Wolna         |               |
+| Szyfrowanie          | Tak           |               |
+
 *** Stacja Dabrowice
-Stacja Dabrowice znajdzie sie na budynku OSP w Dabrowicach. Stacja bazowa bedzie czesciowo finansowana z srodkow europejskiego funduszu ????????, gdyz bedzie czescia systemu zarzadzania kryzysowego. Maszt moze byc pozniej wykorzystany do podobnych celow
-#+caption: Stacja Dabrowice
+Stacja Dabrowice znajdzie sie na budynku OSP w Dabrowicach. Stacja bazowa bedzie czesciowo finansowana z srodkow europejskiego funduszu ????????, gdyz bedzie czescia systemu zarzadzania kryzysowego. Maszt moze byc pozniej wykorzystany do podobnych celów.
+
+#+Caption: Stacja Dąbrowice
 [[./data/mapy/dabrowice.png]]
 
-*** Stacja Zadebie
-a
-#+caption: Stacja Zadebie
+# #+caption: OSP Dąbrowice
+[[./data/img/dabrowice.png]]
 
+|                      | Punkt A       | Punkt B       |
+|----------------------+---------------+---------------|
+| Lokalizacja          | Dąbrowice     | Zadębie       |
+| Wysokośc anten       | 25m           | 35m           |
+| Platforma sprzętowa  | WES3HTG-AX-CA | WES3HTG-AX-CA |
+| Tor radiowy          | Zintegrowany  | Zintegrowany  |
+|----------------------+---------------+---------------|
+| Odległość            | 3.64km        |               |
+| Najwyższa przeszkoda | 8m (dom)      |               |
+| Strefa Fresnela      | Wolna         |               |
+| Szyfrowanie          | Tak           |               |
+
+*** Stacja Zadębie
+
+Stacja Zadębie znajdzie sie w poludniowej czesci osiedla Zadebie w Skierniewicach na siedzibie firmy FAMA. Stacja glowna zostala wybrana ze wzgledu na bogata baze dostawcow usluch internetowych oraz jej polozenie wzgledem stacji bazowych polozonych na poludnie i poludniowy-wschod od Skierniewice.
+
+#   #+caption: Stacja Zadebie
+
+#+name: zadebie
 [[./data/mapy/zadebie.png]]
 
+# #+Caption: FASA
+[[./data/img/zadebie.png]]
 
-
-
-* Przylaczenia abonentow
-* Uzywany sprzet komputerowy
+* Przyłaczenia abonentow
+NIE UJĘTE W PROJEKCIE
+* Używany sprzet radiowy
+W projekcie został wybrany tylko jeden model urządzenia radiowego. Jest to zintegrowany system 802.11ac zasilany poprzez RJ-45 PoE (802.3af) ze zintegrowaną anteną. Wybrany został ze względu na prostotę implementacji (brak skomplikowanych połączeń i specjalistycznych kabli oraz terminatorów) oraz jednorodność przez cały system (ułatwia serwisowanie).
 ** Stacja Bazowa
+Sprzęt radiowy w stacji bazowej składa sie z zintegrowanego urządzenia z własnym zasilaniem oraz wbudowana anteną.
+
 # #+CAPTION: 5GHz Directional Ethernet System WES3HTG-AX-CA
-|---------+--------------------------|
-| Model   | WES3HTG-AX-CA            |
-| Antena  | Zintegrowana, Kierunkowa |
-| Rozmiar | 292 x 146 x 89           |
-| Waga    | 0.82kg                   |
-|         |                          |
+| Specyfikacja             |                                                |
+|--------------------------+------------------------------------------------|
+| Model                    | WES3HTG-AX-CA                                  |
+| Rozmiar                  | 292 x 146 x 89                                 |
+| Waga                     | 0.82kg                                         |
+| Połaczenia               | 1x RJ45 (PoE)                                  |
+| Zasilanie                | PoE: 802.3af                                   |
+| Pobór mocy               | 12W (max)                                      |
+| Połaczenie bezprzewodowe | 802.11ac (5Ghz)                                |
+| Połaczenie przewodowe    | 10/100/1000 BASE-T                             |
+| Zasięg częstotliwości    | 5500-5700Mhz                                   |
+| Szerokość pasma          | 20, 40 lub 80Mhz                               |
+| Przepustowość            | 300Mbps lub 650Mbps                            |
+|--------------------------+------------------------------------------------|
+| Antena                   | Zintegrowana, Kierunkowa                       |
+| Typ                      | Zewnetrzna, Patch, Dual Polarization           |
+| Zysk                     | 17dBi                                          |
+| Azymut                   | 30\degree horyzontalnie, 33\degree wertykalnie |
+| Elewacja                 | 17\degree horyzontalnie, 17\degree wertykalnie |
+
+
 * Finanse
+** Koszty miesięczne
+
+Koszty miesięczne obejmują pensje pracowników, przyłącze zewnętrzne, koszty eksploatacyjne oraz dzierżawe obiektów
+| Usługa             | Kwota brutto (zł) |
+|--------------------+-------------------|
+| Łącze Orange       | ???               |
+| Łącze Netia        | ???               |
+| Pracownicy         | ???               |
+| Dzierżawa obiektów | ???               |
+| Zasilanie          | ???               |
+|--------------------+-------------------|
+| Suma               | #ERROR            |
+|                    |                   |
+#+TBLFM: $2=vsum(@I..@II)
+
+** Koszty inwestycji
+Koszty inwestycji obejmują zakup oraz instalacje nowego sprzętu
+*** Stacja Bazowa
+| Urządzenie                     | Kwota brutto (zł) |
+|--------------------------------+-------------------|
+| Dell EMC PowerSwitch N2224X-ON |              7000 |
+| WES3HTG-AX-CA                  |              3000 |
+| UPS Green Cell RTII            |              1800 |
+|--------------------------------+-------------------|
+| Suma                           |             11800 |
+|                                |                   |
+#+TBLFM: $2=vsum(@I..@II)
+*** Stacja głowna
+| Urządzenie                     | cena (zł) | ilość | Kwota brutto (zł) |
+|--------------------------------+-----------+-------+-------------------|
+| Dell EMC PowerSwitch N2224X-ON |      5000 |     2 |              7000 |
+| WES3HTG-AX-CA                  |      3000 |     3 |              9000 |
+| UPS Green Cell RTII            |      1800 |     1 |              1800 |
+| Dell Poweredge R6515           |     15000 |     2 |             30000 |
+|--------------------------------+-----------+-------+-------------------|
+| Suma                           |           |       |             47800 |
+|                                |           |       |                   |
+#+TBLFM: $4=$2*$3
+
 * Podsumowanie
+
+
 * Bibliografia
 + https://www.dipol.com.pl/poradnik_instalatora_wlan_bib86.htm
-
-
++ https://ipcarrier.blogspot.com/2019/12/overprovisioning-is-as-dangerous-as.html
++ https://support.google.com/youtube/answer/1722171
++ 5GHz WES3HTG Series Manual
++ Projekt dostępowej sieci osiedlowej (miejskiej) (na przykładzie miasta Malborka), Gdańsk 2009
 
